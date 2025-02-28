@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc IMC</title>
+  </head>
+  <style type="text/css" media="all">
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    .mainBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 80%;
+  height: 50%;
+  border: solid 2px black;
+  border-radius: 10px;
+    }
+    .mainBox .inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+    }
+    .inputs input {
+  height: 40px;
+    }
+    .buttons .buttoncalc {
+margin: 10px 0;
+    }
+  </style>
+  <body>
+  <div class="mainBox">
+ <p>Por favor, digite sua altura como no exemplo. <br/> Ex: 1.75</p>
+   <div class="inputs">
+  <label for="Peso">Peso</label>
+  <input type="number" name="Peso" id="Peso" step="0.1"/>
+  <label for="Altura">Altura</label>
+  <input type="number" name="Altura" id="Altura" step="0.1"/>
+   </div>
+   <p id="parag"></p>
+   <p id="parag-text" style="color: red;"></p>
+   <div class="buttons">
+  <button class="buttoncalc" onclick="calc()">Calcular</button>   
+   </div>
+   <p>powered by Tonhao</p>
+  </div>
+  <script type="text/javascript" charset="utf-8">
+    
+    function calc() {
+        const weight = document.getElementById("Peso").value;
+        
+       const height = document.getElementById("Altura").value
+       
+       let result = weight / (height * height);
+       
+       const text = document.getElementById("parag").innerHTML = result;
+       
+       let info = "";
+       
+       if (result < 18.5) {
+    info = "Abaixo do peso, arrombado";
+       }
+    else if (result >= 18.5 && result <= 24.9) {
+    info = "Peso normal, arrombado"
+    }
+    else if (result >= 25 && result <= 29.9) {
+    info = "Dai pra frente é só pra trás, arrombado"
+    }
+    
+       const textshow = document.getElementById("parag-text").innerHTML = info;
+    }
+    
+  </script>
+  </body>
+</html>
